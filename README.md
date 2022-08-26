@@ -2,7 +2,7 @@
 Desenvolvimento Do Projeto de API, 1 Semestre - Banco de Dados
 Esse projeto tem como objetivo o desenvolvimento de uma aplicação proposto pela faculdade Fatec São José Dos Campos - São Paulo. 
 
-Desafio Proposto
+Desafio Proposto:
 A instituição de ensino PBLTeX, especializada em cursos práticas de ensino aplicando
 PBL (Problem Based Learning) desenvolveu uma dinâmica de Avaliação
 Democratizada baseada na técnica de Avaliação 360º, porém incluindo uma avaliação
