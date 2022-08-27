@@ -15,5 +15,6 @@ viabilize a aplicação dessa dinâmica.
 O desafio do seu grupo é apoiar a PBLTeX a levantar, especificar e desenvolver uma
 solução computacional que viabilize a aplicação dessa técnica
 
-    A visualização do desenvolvimento das atividades do projeto, "kanban" poderá ser acompanhada por meio da plataforma Trello
-      Link do Trello: https://trello.com/invite/api_grupofirst/619326ffbe4ce1ebe44ef2187f49dc94
+A visualização do desenvolvimento das atividades do projeto, "kanban" poderá ser acompanhada por meio da plataforma Trello
+Link do Trello: 
+        https://trello.com/invite/api_grupofirst/619326ffbe4ce1ebe44ef2187f49dc94
