@@ -10,11 +10,11 @@ do curso de Banco De Dados na FATEC de São José dos Campos, para a empresa PBL
 
 - [Brendel Marques ](https://github.com/BrendelMarques)
 
-- [Caio](https://github.com/Caio-eng-gif)
+- [Caio Costa Santos](https://github.com/Caio-eng-gif)
 
 - [Cristine Gomes](https://github.com/CristineGomes)
 
-- [Gustavo](https://github.com/Gustavo394)
+- [Gustavo Henrique Silva](https://github.com/Gustavo394)
 
 - [Laroy Bersot Ribeiro do Prado](https://github.com/laroyprado) `Scrum Master`
 
@@ -22,7 +22,7 @@ do curso de Banco De Dados na FATEC de São José dos Campos, para a empresa PBL
 
 - [Roberto Tsushima](https://github.com/Roberto-tsushima)
 
-- [Willian](https://github.com/DankoCaboski)
+- [Willian Danko Leite Caboski](https://github.com/DankoCaboski)
 
 
 
