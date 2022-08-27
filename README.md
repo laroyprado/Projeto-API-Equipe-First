@@ -6,7 +6,7 @@
 Aprendizagem por Projetos Integrados de 2022-2, Avaliação Democratizada baseada na técnica de Avaliação 360º, trabalho realizado pelo 1º Semestre 
 do curso de Banco De Dados na FATEC de São José dos Campos, para a empresa PBLTeX. 
 
-## Equipe Fist: Integrantes
+## Equipe First: Integrantes
 
 - [Brendel Marques ](https://github.com/BrendelMarques)
 
