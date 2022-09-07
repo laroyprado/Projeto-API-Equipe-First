@@ -3,8 +3,6 @@ import pandas as pd
 
 sg.theme('LightGreen1')
 
-##teste
-
 class First():
     def __init__():               
         layout_principal = [
