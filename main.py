@@ -11,9 +11,11 @@ class First():
         return sg.Window('FIRST', layout=layout_principal, margins=(50,50), finalize=True)
     
     def fun_matricula():
-        menu_cadastro = ['Adicionar', ['Turma', 'Professor']]
+        menu_cadastro = [
+            ['Adicionar', ['Turma', 'Professor']],
+        ]
         layout_cadastro = [
-            [sg.Menu(menu_cadastro)]
+            [sg.Menu(menu_cadastro)],
             [sg.Text('Matrícula', expand_x=True, font=('Arial', 20)), sg.Input('', font=('Arial', 20), key='-MATRICULA-')],
             [sg.Text('Nome', expand_x=True, font=('Arial', 20)), sg.Input('', font=('Arial', 20), key='-NOME-')],
             [sg.Text('Senha', expand_x=True, font=('Arial', 20)), sg.Input('', font=('Arial', 20), key='-SENHA-')],
