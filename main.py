@@ -13,7 +13,7 @@ class First():
             [sg.Text('Matrícula', expand_x=True, font=('Arial', 20)), sg.Input('', font=('Arial', 20), key='-MATRICULA-')],
             [sg.Text('Nome', expand_x=True, font=('Arial', 20)), sg.Input('', font=('Arial', 20), key='-NOME-')],
             [sg.Text('Senha', expand_x=True, font=('Arial', 20)), sg.Input('', font=('Arial', 20), key='-SENHA-')],
-            [sg.Text('Turma', expand_x=True, font=('Arial', 20)), sg.Combo('A B C D', expand_x=True, font=('Arial', 20), key='-TURMA-'),
+            [sg.Text('Time', expand_x=True, font=('Arial', 20)), sg.Combo('A B C D', expand_x=True, font=('Arial', 20), key='-TURMA-'),
             sg.Text('Cargo', expand_x=True, font=('Arial', 20)), sg.Combo('Aluno Professor Coordenador', expand_x=True, font=('Arial', 20), key='-TURMA-')],
             [sg.Button('Confirmar', expand_x=True, font=('Arial', 20))]
         ]
