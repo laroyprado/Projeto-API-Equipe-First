@@ -4,12 +4,6 @@ import pandas as pd
 sg.theme('LightGreen1')
 
 class First():
-    def __init__():               
-        layout_principal = [
-            [sg.Button('Matricular', font=('Arial', 20), key='-4-')]
-        ]
-        return sg.Window('FIRST', layout=layout_principal, margins=(50,50), finalize=True)
-    
     def fun_matricula():
         menu_cadastro = [
             ['Adicionar', ['Turma', 'Professor']],
@@ -25,18 +19,11 @@ class First():
         ]
         return sg.Window('Matrícula', layout=layout_cadastro, margins=(10, 10), finalize=True)
 
-    principal, matricula, login = __init__(), None, None
+    matricula, login = fun_matricula(), None
 
     while True:
         window, eventos, valores = sg.read_all_windows()
         
-        if window == principal and eventos == sg.WIN_CLOSED:
-            break
-
-        if window == principal and eventos in ['-4-']:
-            principal.hide()
-            matricula = fun_matricula()
-
         if window == matricula and eventos == sg.WINDOW_CLOSED:
             break
 
