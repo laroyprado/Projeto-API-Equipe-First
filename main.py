@@ -6,7 +6,7 @@ sg.theme('LightGreen1')
 class First():
     def fun_matricula():
         menu_cadastro = [
-            ['Adicionar', ['Turma', 'Professor']],
+            ['Adicionar', ['Turma', 'Cargo']],
         ]
         layout_cadastro = [
             [sg.Menu(menu_cadastro)],
@@ -23,7 +23,7 @@ class First():
 
     while True:
         window, eventos, valores = sg.read_all_windows()
-        
+
         if window == matricula and eventos == sg.WINDOW_CLOSED:
             break
 
