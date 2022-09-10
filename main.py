@@ -4,22 +4,6 @@ import pandas as pd
 sg.theme('LightGreen1')
 
 class First():
-    def fun_login():
-        layout_login = [
-        ]
-    
-    def fun_aluno():
-        layout_aluno =[
-
-        ]
-    def fun_instrutor():
-        layout_instrutor =[
-
-        ]
-    def fun_admin():
-        layout_admin =[
-        ]
-
     def fun_matricula():
         layout_cadastro = [
             [sg.Text('Matrícula', font=('Arial', 20)), sg.Input('', font=('Arial', 20), key='-MATRICULA-')],
