@@ -27,7 +27,7 @@ do curso de Banco De Dados na FATEC de São José dos Campos, para a empresa PBL
 
 
 
-## 📝 Disciplinas Integradas:
+## 👨‍🏫 Disciplinas Integradas:
 
 - Arquitetura e Organização De Computadores - Professor Fabiano Sabha
 - Algoritmos - Professor Lucas Nadalete
@@ -73,8 +73,8 @@ em um dashboard, de forma ágil e simples.
 - [ ] [Sprint 3] - 17/10/2022 a 06/11/2022
 - [ ] [Sprint 4] - 07/11/2022 a 27/11/2022
 
-# Product Backlog
+# 📝 Product Backlog
 
-# A Visualização Do Desenvolvimento
+# ✅❌ A Visualização Do Desenvolvimento
 A visualização do desenvolvimento das atividades do projeto, **kanban**, poderá ser acompanhada por meio da plataforma Trello do Trello:
-[Visualização Do Projeto No Trello](https://trello.com/invite/api_grupofirst/619326ffbe4ce1ebe44ef2187f49dc94)
+[Visualização Do Projeto No GitHub](https://github.com/users/laroyprado/projects/1/views/1)
