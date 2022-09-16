@@ -1,12 +1,13 @@
-# APRENDIZAGEM POR PROJETOS INTEGRADOS 
+# 🎓 Aprendizado por Projeto Integrador
+* FATEC São José dos Campos - Prof. Jessen Vidal
 
-> Status Do Projeto : Em Desenvolvimento ⚠️
+* 1º Período - Banco De Dados
 
 ## Fatec São José dos Campos, SP - PBLTeX  
 Aprendizagem por Projetos Integrados de 2022-2, Avaliação Democratizada baseada na técnica de Avaliação 360º, trabalho realizado pelo 1º Semestre 
 do curso de Banco De Dados na FATEC de São José dos Campos, para a empresa PBLTeX. 
 
-## Equipe First: Integrantes
+### 👨‍💻 👩‍💻 Equipe First: Integrantes
 
 - [Brendel Marques ](https://github.com/BrendelMarques)
 
@@ -26,13 +27,13 @@ do curso de Banco De Dados na FATEC de São José dos Campos, para a empresa PBL
 
 
 
-## Disciplinas Integradas:
+## 📝 Disciplinas Integradas:
 
 - Arquitetura e Organização De Computadores - Professor Fabiano Sabha
 - Algoritmos - Professor Lucas Nadalete
 - Laboratório De Desenvolvimento Em Banco De Dados - Professor Lucas Nadalete
 
-## Objetivo
+## 🎯 Objetivo
 Desenvolver uma aplicação para Avaliação Democratizada, porém incluindo uma avaliação técnica adicional feita pelo Líder do Grupo e uma avaliação de produto/negócio realizada pelo Fake Client.
  - Deve possuir um controle de usuários mínimo;
  - Deve possuir um controle de perfis (instrutores e integrantes do time);
@@ -46,13 +47,27 @@ dos demais integrantes, incluindo a sí próprio, de forma individualizada.
   - Instrutor Fake Client avaliando o aluno PO do Time
 - Deve prover um ou mais Dashboards de acompanhamento
 
-## Descritivo do Projeto
+## 💬 Descritivo do Projeto
 
 Para a empresa PBLTeX , que deseja realizar suas avaliações democraticas, recebendo os dados  
 em um dashboard, de forma ágil e simples. 
 
+### 🛠️ Ferramentas/Tecnologias
+
+* __Front-End__
+
+![](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=darkgreen)
+
+* __Back-End__
+
+![](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=darkgreen)
+
+* __Data-Base__
+
+* __Wireframe__
+
 ### Entregas
-- [X] [Kick-Off] - 15/08/2022 a 19/08/2022
+- [X] [Kick-Off] - 15/08/2022 a 19/08/2022 ✅
 - [ ] [Sprint 1] - 29/08/2022 a 18/09/2022
 - [ ] [Sprint 2] - 19/09/2022 a 09/10/2022
 - [ ] [Sprint 3] - 17/10/2022 a 06/11/2022
