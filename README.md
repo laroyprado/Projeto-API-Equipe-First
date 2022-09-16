@@ -17,7 +17,7 @@ do curso de Banco De Dados na FATEC de São José dos Campos, para a empresa PBL
 |__Brendel Marques__  | *Developer Team*  | [![](https://bit.ly/3f9Xo0P)](https://github.com/BrendelMarques)| [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/brendel-marques-4bb1b3148/) |
 |__Caio Costa Santos__  |  *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/Caio-eng-gif)| [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/caio-costa-santos-7a7277195) |
 |__Cristine Gomes__  | *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/CristineGomes)  | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/cristine-cordeiro-467a9620b) |
-|__Gustavo Henrique Silva__| *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/Gustavo394)      | [![](https://bit.ly/2P1ZogM)]([Linkedin](https://www.linkedin.com/in/gustavo-h8-silva)) |
+|__Gustavo Henrique Silva__| *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/Gustavo394)      | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/gustavo-h8-silva) |
 |__Laroy Bersot Ribeiro do Prado__ | *Scrum Master* | [![](https://bit.ly/3f9Xo0P)](https://github.com/laroyprado)   | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/laroyprado/) |
 |__Pablo Cunha__| *Product Owner* | [![](https://bit.ly/3f9Xo0P)](https://github.com/pabloo-cunha) | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/pabloo-cunha/) |
 |__Roberto Tsushima__| *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/Roberto-tsushima)      | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/roberto-shoiti-tsushima-junior-71318a240/) |
