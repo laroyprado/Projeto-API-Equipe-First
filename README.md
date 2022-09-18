@@ -78,7 +78,7 @@ em um dashboard, de forma ágil e simples.
 
 ## ⏳ Entregas
 - [X] [**Kick-Off**] - 15/08/2022 a 19/08/2022 ✅
-- [ ] [**Sprint 1**](https://github.com/laroyprado/Projeto-API-Equipe-First/tree/Sprint-1) - 29/08/2022 a 18/09/2022
+- [X] [**Sprint 1**](https://github.com/laroyprado/Projeto-API-Equipe-First/tree/Sprint-1) - 29/08/2022 a 18/09/2022 ✅
 - [ ] [**Sprint 2**] - 19/09/2022 a 09/10/2022
 - [ ] [**Sprint 3**] - 17/10/2022 a 06/11/2022
 - [ ] [**Sprint 4**] - 07/11/2022 a 27/11/2022
@@ -89,7 +89,8 @@ em um dashboard, de forma ágil e simples.
 
 # 📝 Product Backlog
 
-
+Todo o Backlog priorizado por valor, se encontra em:
+[__Product Backlog__](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/main/Documentacao/Backlog_(API_1_Semestre_Banco_De_Dados).pdf) 
 
 ## ✅❌ A Visualização Do Desenvolvimento
 A visualização do desenvolvimento das atividades do projeto, **kanban**, poderá ser acompanhada por meio da plataforma Trello do Trello:
