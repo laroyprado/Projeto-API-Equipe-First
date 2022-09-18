@@ -27,4 +27,4 @@ Acesse os links para visualizar:
 
 * [Código](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/main/Avaliador%20360%C2%BA%20-%20PBLTeX/main.py)
 
-![](ADD GIF da Sprint 1)
+![](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/Sprint-1/MVP/MVP.gif)
