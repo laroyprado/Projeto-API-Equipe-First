@@ -1,4 +1,4 @@
-# 🎓 Aprendizado por Projeto
+# 🎓 Aprendizado por Projeto Integrador
 * FATEC São José dos Campos - Prof. Jessen Vidal
 
 * 1º Período - Banco De Dados
