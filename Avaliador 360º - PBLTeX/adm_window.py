@@ -26,7 +26,7 @@ def fun_adm():
         sg.pin(sg.Button('Consultar times', font=('Arial',20),  key='-NOTAS-')),
         sg.pin(sg.Button('Classificar notas', font=('Arial',20),  key='-RANK-'))]
     ]
-    return sg.Window('MINISTRADOR', layout=layout_adm, margins=(10, 10), finalize=True)
+    return sg.Window('ADMINISTRADOR', layout=layout_adm, margins=(10, 10), finalize=True)
 #adm = fun_adm() 
 
 #class adm_alunos():
