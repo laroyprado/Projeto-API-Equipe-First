@@ -1,4 +1,5 @@
 import PySimpleGUI as sg
+import pandas as pd
 
 sg.theme('LightGreen1')
 layout = [
@@ -15,9 +16,27 @@ while True:
     if eventos == sg.WINDOW_CLOSED:
         break
     if eventos == 'Entrar':
-        if valores ['usuário'] == 'excel' and valores ['senha'] == 'excel':
-            sg.popup_quick("Bem Vindo")
-        elif valores ['usuário'] == '' or valores ['senha'] == '':
-            sg.popup_quick("Preencha Todos os campos")
-        else:
+        
+        df = pd.read_excel('arquivo.xlsx')
+        df.head()
+                
+        login = df['Matricula']
+        senha = df['Senha']
+
+          
+           
+    if valores ['usuário'] == '' or valores ['senha'] == '':
+        sg.popup_quick("Preencha Todos os campos")
+    else:
+        x = 0
+        for usuario in login:
+            if valores['usuário'] == str(usuario):
+                if valores['senha'] == str(senha[x]):
+                    sg.popup_quick("Bem Vindo")
+                    
+                    x=0
+                    break
+                                
+            x += 1                
+        if x > 0:           
             sg.popup_quick("Sua senha está errada")
