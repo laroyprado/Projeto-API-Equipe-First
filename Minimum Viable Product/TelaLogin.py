@@ -22,8 +22,7 @@ while True:
                 
         login = df['Matricula']
         senha = df['Senha']
-
-          
+         
            
     if valores ['usuário'] == '' or valores ['senha'] == '':
         sg.popup_quick("Preencha Todos os campos")
