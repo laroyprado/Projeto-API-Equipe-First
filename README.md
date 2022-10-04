@@ -10,7 +10,7 @@ Abaixo encontram-se todos os itens produzidos durante a __SPRINT 2__:
 
 *A imagem abaixo mostra como os itens do [__Product Backlog__](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/main/Documentacao/Backlog_(API_1_Semestre_Banco_De_Dados).pdf) que foram desenvolvidos durante a __Sprint 2__:*
 
-![]( LINK IMAGEM CANVAS SPRINT 2)
+![](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/Sprint-2/Documenta%C3%A7%C3%A3o/Backlog%20sprint%202.jpeg)
 
 
 ## 2 - 🖥️ Wireframe Desktop
