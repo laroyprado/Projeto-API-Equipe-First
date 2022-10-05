@@ -3,10 +3,9 @@ import pandas as pd
 
 sg.theme('LightGreen1')
 layout = [
-    [sg.Text('Usuário',font=('Arial', 20)), sg.Input(font=('Arial', 20), key='usuário', size=(30,30))],
-    [sg.Text('Senha',font=('Arial', 20)), sg.Input(font=('Arial', 20),key='senha', password_char= '*', size=(30,30))],
-    [sg.Checkbox('Salvar Login',font=('Arial', 20))],
-    [sg.Button('Entrar',font=('Arial', 20))]
+    [sg.Text('Usuário',font=('Arial', 15))], [sg.Input(font=('Arial', 15), key='usuário', size=(30,30))],
+    [sg.Text('Senha',font=('Arial', 15))], [sg.Input(font=('Arial', 15),key='senha', password_char= '*', size=(30,30))],
+    [sg.Button('Entrar',font=('Arial', 15))]
 ]
 
 janela = sg.Window('Tela de Login', layout=layout, margins=(20,20),finalize=True)
@@ -17,7 +16,7 @@ while True:
         break
     if eventos == 'Entrar':
         
-        df = pd.read_excel('arquivo.xlsx')
+        df = pd.read_excel('arquivos.xlsx')
         df.head()
                 
         login = df['Matricula']
@@ -38,4 +37,4 @@ while True:
                                 
             x += 1                
         if x > 0:           
-            sg.popup_quick("Sua senha está errada")
+            sg.popup_quick("Verifique seu login ou senha.")
