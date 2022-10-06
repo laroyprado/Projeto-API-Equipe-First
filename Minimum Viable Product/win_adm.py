@@ -5,28 +5,6 @@ import pandas as pd #import pandas as pd #Importação da ferramenta Pandas, def
 
 sg.theme('LightGreen1') # Aqui definimos o tema que será usado no layout
 
-def fun_login():
-    layout_login = [
-    [sg.Text('Usuário',font=('Arial', 15))],[sg.Input(font=('Arial', 15), key='usuário', size=(30,30))],
-    [sg.Text('Senha',font=('Arial', 15))], [sg.Input(font=('Arial', 15), key='senha', password_char= '*', size=(26,30)), sg.Button('Ver', font=('Arial', 10), size=(3,1))],
-    [sg.Button('Entrar',font=('Arial',17))]
-    ]
-    return sg.Window('Tela de Login', layout=layout_login, margins=(20,20),finalize=True)
-
-'''
-class First(): # Criação da classe
-    def fun_matricula(): # Criação da função
-        layout_cadastro = [ # Criação da tela, especificando tamanho, fonte e KEY que é fundamental para o funcionamento do programa
-            [sg.Text('Matrícula', font=('Arial', 20)), sg.Input('', font=('Arial', 20), key='-MATRICULA-')],
-            [sg.Text('Nome', font=('Arial', 20)), sg.Input('', font=('Arial', 20), key='-NOME-')],
-            [sg.Text('Senha', font=('Arial', 20)), sg.Input('', font=('Arial', 20), key='-SENHA-')],
-            [sg.Text('Time', size=(10), font=('Arial', 20)), sg.Input('', size=(10), font=('Arial', 20), key='-TIME-'),
-            sg.Text('Cargo', size=(10), font=('Arial', 20)), sg.Input('', size=(10), font=('Arial', 20), key='-CARGO-')],
-            [sg.Button('Confirmar', expand_x=True, font=('Arial', 20), key='-CONFIRMAR-')]
-        ]
-        return sg.Window('Cadastro', layout=layout_cadastro, margins=(10, 10), finalize=True) # Aqui estamos criando o comando para que a janela seja criada quando a função for executada
-    matricula = fun_matricula() # Aqui estamos definindo a variavel "matricula" como respondavel pelo funcionamento da função "fun_matricula"
-'''   
 #função administrador():
 def fun_adm():
     layout_adm = [
