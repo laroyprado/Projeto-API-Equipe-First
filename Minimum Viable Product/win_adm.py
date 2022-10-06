@@ -1,5 +1,3 @@
-from sre_constants import IN
-from types import NoneType
 import PySimpleGUI as sg # Importação da ferramenta PySimpleGUI, após o comando "as" podemos definir o apelido "sg" para que seja mais rápido e facil usar a biblioteca
 import pandas as pd #import pandas as pd #Importação da ferramenta Pandas, definindo o apelido "pd"
 
