@@ -53,7 +53,7 @@ while True: # Este comando serve para iniciar uma repetição, para que o progra
         break # Este comando serve para encerrar uma repetição
 
     if window == win_adm and eventos in ['-ALUNOS-']:
-        win_adm.hide
+        win_adm.hide()
         con_alunos = fun_cons_aluno()
     if window == win_adm and eventos in ['-TIMES-']:
         win_adm.hide()
@@ -65,4 +65,4 @@ while True: # Este comando serve para iniciar uma repetição, para que o progra
         con_alunos.hide()
         con_times.hide()
         con_notas.hide()
-        win_adm.UnHide
+        win_adm.un_hide()
