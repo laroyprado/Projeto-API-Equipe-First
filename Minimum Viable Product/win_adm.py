@@ -19,14 +19,25 @@ def fun_adm():
 def fun_cons_aluno():
     layout_consultar = [
         [sg.Text(cadastro_df.loc[:,'Nome'], expand_x=True, justification='center', font=('Arial', 20))],
-        [sg.pin(sg.Button('Consultar alunos', font=('Arial',20),  key='-ALUNOS-')),
-        sg.pin(sg.Button('Consultar times', font=('Arial',20),  key='-TIMES-')),
-        sg.pin(sg.Button('Classificar notas', font=('Arial',20),  key='-NOTAS-'))],
         [sg.Button('Retornar', expand_x=True, font=('Arial', 20), key='-ToADM-')]
     ]
     return sg.Window('ALUNOS', layout=layout_consultar, margins=(10, 10), finalize=True)
 
-win_login, win_aluno, win_prof, win_adm, con_cads, con_times, con_notas, win_cad = None, None, None, fun_adm() ,None, None, None, None
+def fun_cons_times():
+    layout_consultar = [
+        [sg.Text(cadastro_df.loc[:,'Time'], expand_x=True, justification='center', font=('Arial', 20))],
+        [sg.Button('Retornar', expand_x=True, font=('Arial', 20), key='-ToADM-')]
+    ]
+    return sg.Window('ALUNOS', layout=layout_consultar, margins=(10, 10), finalize=True)
+
+def fun_cons_notas():
+    layout_consultar = [
+        [sg.Text('', expand_x=True, justification='center', font=('Arial', 20))],
+        [sg.Button('Retornar', expand_x=True, font=('Arial', 20), key='-ToADM-')]
+    ]
+    return sg.Window('ALUNOS', layout=layout_consultar, margins=(10, 10), finalize=True)
+
+win_adm, con_alunos, con_times, con_notas = fun_adm() ,None, None, None
 
 # win_login é a tela de login, #win_aluno é a tela do aluno, #win_prof é a tela do prof, #con_cads é a tela de consulta cadastros, #con_times é a tela de consulta de times, #con_notas é a tela de consultas de notas, #win_cad é a tela de cadastro 
 
@@ -42,15 +53,16 @@ while True: # Este comando serve para iniciar uma repetição, para que o progra
         break # Este comando serve para encerrar uma repetição
 
     if window == win_adm and eventos in ['-ALUNOS-']:
-        con_cads = fun_cons_aluno()
-        con_cads.un_hide()
+        win_adm.hide
+        con_alunos = fun_cons_aluno()
+    if window == win_adm and eventos in ['-TIMES-']:
         win_adm.hide()
-    elif window == win_adm and eventos in ['-TIMES-']:
-        con_times = fun_cons_aluno()
-        con_times.un_hide()
-        win_adm.hide()
-    elif window == win_adm and eventos in ['-NOTAS-']:
-        con_notas = fun_cons_aluno()
-        con_notas.un_hide()
-        win_adm.hide()
- 
+        con_times = fun_cons_times()
+    if window == win_adm and eventos in ['-NOTAS-']:
+        win_adm.hide() 
+        con_notas = fun_cons_notas()
+    if window != win_adm and eventos in ['-ToADM-']:
+        con_alunos.hide()
+        con_times.hide()
+        con_notas.hide()
+        win_adm.UnHide
