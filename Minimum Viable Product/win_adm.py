@@ -66,3 +66,12 @@ while True: # Este comando serve para iniciar uma repetição, para que o progra
         con_times.hide()
         con_notas.hide()
         win_adm.un_hide()
+    elif window == con_alunos and eventos in ['-ToADM-']:
+        win_adm = fun_adm()
+        con_alunos.hide()
+    elif window == con_times and eventos in ['-ToADM-']:
+        win_adm = fun_adm()
+        con_times.hide()
+    elif window == con_notas and eventos in ['-ToADM-']:
+        win_adm = fun_adm()
+        con_notas.hide()
