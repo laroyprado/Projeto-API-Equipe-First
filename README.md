@@ -23,7 +23,7 @@ Acesse os links para visualizar:
  
 ## 3 - 🚲 Mínimo Produto Viável (MVP)
 
-*O Gif abaixo mostra a página de cadastro de cada usuário, contendo número de mátricula,nome do aluno, senha, nome do time e o cargo do usuário, tudo feito pelo Administrador :*
+*O Gif abaixo mostra a página de cadastro de cada usuário, contendo número de mátricula,nome do aluno, senha, nome do time e o cargo do usuário, tudo feito pelo administrador :*
 
 * [Código](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/main/Avaliador%20360%C2%BA%20-%20PBLTeX/main.py)
 
