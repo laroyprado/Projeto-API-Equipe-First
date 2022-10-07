@@ -18,8 +18,10 @@ def fun_adm(): #Criação da tela principal do administrador
     return sg.Window('ADMINISTRADOR', layout=layout_adm, margins=(10, 10), finalize=True)
 
 def fun_adm_alunos(): #Criação da tela de consulta da lista de alunos
+    nomes = cadastro_df['Nome']
+
     layout_adm_alnos = [
-        [sg.Text(cadastro_df.loc[:,'Nome'], expand_x=True, justification='center', font=('Arial', 20))],
+        [sg.Listbox(cadastro_df['Nome'], expand_x=True, size=(15, 10), font=('Arial', 20))],
         [sg.Button('Retornar', expand_x=True, font=('Arial', 20), key='-ToADM-')]
     ]
     return sg.Window('ALUNOS', layout=layout_adm_alnos, margins=(10, 10), finalize=True)
