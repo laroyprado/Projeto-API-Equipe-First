@@ -31,4 +31,4 @@ Acesse os links para visualizar:
 
 * [Código](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/main/Avaliador%20360%C2%BA%20-%20PBLTeX/main.py)
 
-![](LINK GIF DE EXECUÇÃO)
+![](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/Sprint-2/Minimum%20Viable%20Product/gif_tela_login.gif)
