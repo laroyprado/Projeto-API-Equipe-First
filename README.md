@@ -27,7 +27,7 @@ Acesse os links para visualizar:
  
 ## 3 - 🚲 Mínimo Produto Viável (MVP)
 
-*O Gif abaixo mostra a página de cadastro de cada usuário, contendo número de mátricula,nome do aluno, senha, nome do time e o cargo do usuário, tudo feito pelo administrador :*
+*Abaixo temos o endereço dos MVPs entregues nessa Sprint, bem como um Gif demonstrando o comportamento da tela de login quando: são inseridas credenciais corretas; quando alguma informação não é preenchida; e quando a senha informada é incorreta.*
 
 * [Código - Tela Login](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/main/Avaliador%20360%C2%BA%20-%20PBLTeX/Tela_Login.py)
 
