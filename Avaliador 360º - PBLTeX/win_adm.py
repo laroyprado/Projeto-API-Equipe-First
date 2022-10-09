@@ -4,7 +4,7 @@ import tkinter
 import pandas as pd # Importação da lib pandas como "pd"
 
 excel_header = ['Matricula', 'Nome','Senha','Time','Cargo'] # Aqui estamos informando os nomes das colunas
-cadastro_df = pd.DataFrame(data = pd.read_excel(r'C:\Users\danko\OneDrive\Documentos\GitHub\Projeto-API-Equipe-First\DataBase\arquivo.xlsx', engine='openpyxl'), columns=excel_header) # Aqui estamos criando um DataFrame com as informações do arquivo excel, mudar o endereco da pasta
+cadastro_df = pd.DataFrame(data = pd.read_excel('arquivo.xlsx', engine='openpyxl'), columns=excel_header) # Aqui estamos criando um DataFrame com as informações do arquivo excel, mudar o endereco da pasta
 
 sg.theme('LightGreen1') # Aqui definimos o tema que será usado no layout
 
