@@ -29,6 +29,8 @@ Acesse os links para visualizar:
 
 *O Gif abaixo mostra a página de cadastro de cada usuário, contendo número de mátricula,nome do aluno, senha, nome do time e o cargo do usuário, tudo feito pelo administrador :*
 
-* [Código](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/main/Avaliador%20360%C2%BA%20-%20PBLTeX/main.py)
+* [Código - Tela Login](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/main/Avaliador%20360%C2%BA%20-%20PBLTeX/Tela_Login.py)
+
+* [Código - Janela Consulta](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/main/Avaliador%20360%C2%BA%20-%20PBLTeX/win_adm.py)
 
 ![](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/Sprint-2/Minimum%20Viable%20Product/gif_tela_login.gif)
