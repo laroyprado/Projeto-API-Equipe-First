@@ -16,7 +16,7 @@ while True:
         break
     if eventos == 'Entrar':
         
-        df = pd.read_excel('arquivos.xlsx')
+        df = pd.read_excel('arquivo.xlsx')
         df.head()
                 
         login = df['Matricula']

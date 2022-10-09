@@ -17,8 +17,12 @@ Abaixo encontram-se todos os itens produzidos durante a __SPRINT 2__:
 
 Acesse os links para visualizar:
 
-> * [Imagens](LINK DAS IMAGENS DESENVOLVIDAS NA SPRINT 2)
-> * [Protótipo interativo no Figma](LINK PROTOTIPO FIGMA DESENVOLVIDO NA SPRINT 2)
+
+> * [Telas do ADM - Mac](https://github.com/laroyprado/Projeto-API-Equipe-First/tree/Sprint-2/Telas%20ADM%20-%20Mac)
+> * [Telas do ADM - Microsoft](https://github.com/laroyprado/Projeto-API-Equipe-First/tree/Sprint-2/Telas%20ADM%20-%20Microsoft)
+
+
+> * [Protótipo interativo no Figma](https://www.figma.com/file/2JpDTLguDtheecLGFKWxwX/Projeto-First---Telas?node-id=0%3A1)
 
  
 ## 3 - 🚲 Mínimo Produto Viável (MVP)
@@ -27,4 +31,4 @@ Acesse os links para visualizar:
 
 * [Código](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/main/Avaliador%20360%C2%BA%20-%20PBLTeX/main.py)
 
-![](LINK GIF DE EXECUÇÃO)
+![](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/Sprint-2/Minimum%20Viable%20Product/gif_tela_login.gif)
