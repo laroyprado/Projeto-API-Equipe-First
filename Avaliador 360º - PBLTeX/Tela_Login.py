@@ -16,7 +16,7 @@ while True:
         break
     if eventos == 'Entrar':
         
-        df = pd.read_excel('arquivo.xlsx')
+        df = pd.read_excel('Avaliador 360º - PBLTeX/arquivo.xlsx')
         df.head()
                 
         login = df['Matricula']
