@@ -4,7 +4,7 @@ import pandas as pd
 sg.theme('LightGreen1')
 sg.set_options(font=('Arial', 20))
 
-sklls1 = [
+sklls = [
     [sg.Text('1. Trabalho Em Equipe, Cooperação E Descentralização De Conhecimento')],
     [sg.Input(size=(5, 1), readonly=True, key='-INPM1-')],
     [sg.Text('2. Iniciativa e proatividade')],
@@ -147,7 +147,7 @@ class First():
             [sg.Text('Alunos', expand_x=True, justification='center')],
             [sg.Combo(nome, expand_x=True, readonly=True, enable_events=True, key='-SELECT_N-')],
             [sg.Text('Matrícula'), sg.Input(key='-MATRICULA-', size=(7, 1), readonly=True)],
-            [sg.Column(sklls1),sg.Column(notas)],
+            [sg.Column(sklls),sg.Column(notas)],
             [sg.Button('Retornar', expand_x=True, key='-BACK-')]
         ]
         return sg.Window('Consultar', layout=teste, margins=(10, 10), finalize=True)
