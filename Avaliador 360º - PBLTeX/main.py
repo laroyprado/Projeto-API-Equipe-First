@@ -4,6 +4,31 @@ import pandas as pd
 sg.theme('LightGreen1')
 sg.set_options(font=('Arial', 20))
 
+sklls1 = [
+    [sg.Text('1. Trabalho Em Equipe, Cooperação E Descentralização De Conhecimento')],
+    [sg.Input(size=(5, 1), readonly=True, key='-INPM1-')],
+    [sg.Text('2. Iniciativa e proatividade')],
+    [sg.Input(size=(5, 1), readonly=True, key='-INPM2-')],
+    [sg.Text('3. Autodidaxia E Agregação De Conhecimento Ao Grupo')],
+    [sg.Input(size=(5, 1), readonly=True, key='-INPM3-')],
+    [sg.Text('4. Entrega de Resultados E Participação Efetiva No Projeto')],
+    [sg.Input(size=(5, 1), readonly=True, key='-INPM4-')],
+    [sg.Text('5. Competência Técnica')],
+    [sg.Input(size=(5, 1), readonly=True, key='-INPM5-')]
+]
+
+notas = [
+    [sg.ProgressBar(50, orientation='h', size=(30, 30), border_width=1, key='-BARM1-')],
+    [sg.Text('')],
+    [sg.ProgressBar(50, orientation='h', size=(30, 30),  border_width=1, key='-BARM2-')],
+    [sg.Text('')],
+    [sg.ProgressBar(50, orientation='h', size=(30, 30), border_width=1, key='-BARM3-')],
+    [sg.Text('')],
+    [sg.ProgressBar(50, orientation='h', size=(30, 30), border_width=1, key='-BARM4-')],
+    [sg.Text('')],
+    [sg.ProgressBar(50, orientation='h', size=(30, 30), border_width=1, key='-BARM5-')],   
+]
+
 class First():
     def fun_login():
         layout_login = [
@@ -100,31 +125,6 @@ class First():
         ]
         return sg.Window('Avaliar', layout=layout_avaliar, margins=(10, 10), finalize=True)
 
-    def fun_notas():
-        nome = []
-        nome_df = pd.DataFrame(data = pd.read_excel('Avaliador 360º - PBLTeX/arquivo.xlsx', engine='openpyxl'))
-
-        for linha in nome_df['Nome']:
-            nome.append(linha)
-        
-        layout_notas = [
-            [sg.Text('Alunos', expand_x=True, justification='center')],
-            [sg.Combo(nome, expand_x=True, readonly=True, enable_events=True, key='-SELECT_N-')],
-            [sg.Text('Matrícula'), sg.Input(key='-MATRICULA-', size=(7, 1), readonly=True)],
-            [sg.Text('1. Trabalho Em Equipe, Cooperação E Descentralização De Conhecimento')],
-            [sg.Input(size=(5, 1), readonly=True, key='-INPM1-'), sg.ProgressBar(50, orientation='h', size=(30, 30), border_width=1, key='-BARM1-')],
-            [sg.Text('2. Iniciativa e proatividade')],
-            [sg.Input(size=(5, 1), readonly=True, key='-INPM2-'), sg.ProgressBar(50, orientation='h', size=(30, 30),  border_width=1, key='-BARM2-')],
-            [sg.Text('3. Autodidaxia E Agregação De Conhecimento Ao Grupo')],
-            [sg.Input(size=(5, 1), readonly=True, key='-INPM3-'), sg.ProgressBar(50, orientation='h', size=(30, 30), border_width=1, key='-BARM3-')],
-            [sg.Text('4. Entrega de Resultados E Participação Efetiva No Projeto')],
-            [sg.Input(size=(5, 1), readonly=True, key='-INPM4-'), sg.ProgressBar(50, orientation='h', size=(30, 30), border_width=1, key='-BARM4-')],
-            [sg.Text('5. Competência Técnica')],
-            [sg.Input(size=(5, 1), readonly=True, key='-INPM5-'), sg.ProgressBar(50, orientation='h', size=(30, 30), border_width=1, key='-BARM5-')],
-            [sg.Button('Retornar', expand_x=True, key='-BACK-')],
-        ]
-        return sg.Window('Consultar', layout=layout_notas, margins=(10, 10), finalize=True)
-
     def fun_cadastrar():
         layout_cadastrar = [
             [sg.Text('Matrícula'), sg.Input(key='-MATRICULA-')],
@@ -136,6 +136,21 @@ class First():
             sg.Button('Retornar', expand_x=True, key='-BACK-')],
         ]
         return sg.Window('Cadastrar', layout=layout_cadastrar, margins=(10, 10), finalize=True)
+
+    def fun_notas():
+        nome = []
+        nome_df = pd.DataFrame(data = pd.read_excel('Avaliador 360º - PBLTeX/arquivo.xlsx', engine='openpyxl'))
+
+        for linha in nome_df['Nome']:
+            nome.append(linha)
+        teste = [
+            [sg.Text('Alunos', expand_x=True, justification='center')],
+            [sg.Combo(nome, expand_x=True, readonly=True, enable_events=True, key='-SELECT_N-')],
+            [sg.Text('Matrícula'), sg.Input(key='-MATRICULA-', size=(7, 1), readonly=True)],
+            [sg.Column(sklls1),sg.Column(notas)],
+            [sg.Button('Retornar', expand_x=True, key='-BACK-')]
+        ]
+        return sg.Window('Consultar', layout=teste, margins=(10, 10), finalize=True)
 
     tela, login = fun_login(), None
 
@@ -309,35 +324,35 @@ class First():
                         if p_m1 <= 25:
                             janela['-BARM1-'].update(p_m1, bar_color=('red', 'white'))
                         if p_m1 > 25 and p_m1 < 40:
-                           janela['-BARM1-'].update(p_m1, bar_color=('yellow', 'white'))
+                            janela['-BARM1-'].update(p_m1, bar_color=('yellow', 'white'))
                         if p_m1 >= 40:
                             janela['-BARM1-'].update(p_m1, bar_color=('green', 'white'))
 
                         if p_m2 <= 25:
                             janela['-BARM2-'].update(p_m2, bar_color=('red', 'white'))
                         if p_m2 > 25 and p_m2 < 40:
-                           janela['-BARM2-'].update(p_m2, bar_color=('yellow', 'white'))
+                            janela['-BARM2-'].update(p_m2, bar_color=('yellow', 'white'))
                         if p_m2 >= 40:
                             janela['-BARM2-'].update(p_m2, bar_color=('green', 'white'))
 
                         if p_m3 <= 25:
                             janela['-BARM3-'].update(p_m3, bar_color=('red', 'white'))
                         if p_m3 > 25 and p_m3 < 40:
-                           janela['-BARM3-'].update(p_m3, bar_color=('yellow', 'white'))
+                            janela['-BARM3-'].update(p_m3, bar_color=('yellow', 'white'))
                         if p_m3 >= 40:
                             janela['-BARM3-'].update(p_m3, bar_color=('green', 'white'))
 
                         if p_m4 <= 25:
                             janela['-BARM4-'].update(p_m4, bar_color=('red', 'white'))
                         if p_m4 > 25 and p_m4 < 40:
-                           janela['-BARM4-'].update(p_m4, bar_color=('yellow', 'white'))
+                            janela['-BARM4-'].update(p_m4, bar_color=('yellow', 'white'))
                         if p_m4 >= 40:
                             janela['-BARM4-'].update(p_m4, bar_color=('green', 'white'))
 
                         if p_m5 <= 25:
                             janela['-BARM5-'].update(p_m5, bar_color=('red', 'white'))
                         if p_m5 > 25 and p_m5 < 40:
-                           janela['-BARM5-'].update(p_m5, bar_color=('yellow', 'white'))
+                            janela['-BARM5-'].update(p_m5, bar_color=('yellow', 'white'))
                         if p_m5 >= 40:
                             janela['-BARM5-'].update(p_m5, bar_color=('green', 'white'))
 
