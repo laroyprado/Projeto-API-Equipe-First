@@ -4,7 +4,7 @@ import pandas as pd
 sg.theme('LightGreen1')
 sg.set_options(font=('Arial', 20))
 
-
+nivel = 0 # 1 = adm, 2 = professor, 3 = aluno
 
 def fun_login():
     layout_login = [
@@ -15,6 +15,8 @@ def fun_login():
     return sg.Window('Login', layout=layout_login, margins=(10,10),finalize=True)
     
 def fun_aluno():
+    global nivel
+    nivel = 3
     layout_aluno = [
         [sg.Text('Logado como aluno', expand_x=True, justification='center', key='-NOME_USUARIO-')],
         [sg.pin(sg.Button('Avaliar colegas', size=(13, 1), key='-AVALIAR-')),
@@ -24,6 +26,8 @@ def fun_aluno():
     return sg.Window('Aluno', layout=layout_aluno, margins=(10, 10), finalize=True)
 
 def fun_professor():
+    global nivel
+    nivel = 2
     layout_professor = [
         [sg.Text('Logado como professor', expand_x=True, justification='center', key='-NOME_USUARIO-')],
         [sg.pin(sg.Button('Consultar alunos', size=(13, 1), key='-ALUNOS-')),
@@ -34,6 +38,8 @@ def fun_professor():
     return sg.Window('Professor', layout=layout_professor, margins=(10, 10), finalize=True)
 
 def fun_adm():
+    global nivel
+    nivel = 1
     layout_adm = [
         [sg.Text('Logado como administrador', expand_x=True, justification='center', key='-NOME_USUARIO-')],
         [sg.pin(sg.Button('Consultar alunos', size=(13, 1), key='-ALUNOS-')),
@@ -102,18 +108,24 @@ def fun_avaliar():
     return sg.Window('Avaliar', layout=layout_avaliar, margins=(10, 10), finalize=True)
 
 def fun_cadastrar():
+    Cargo = [
+        [sg.Text('Cargo', size=(10)), sg.Combo(['Aluno', 'PO', 'SM', 'Professor', 'Admin'], readonly=True, size=(10), expand_x=True, key='-CARGO-')]
+    ]
+    Time = [
+        [sg.Text('Time', size=(10)), sg.Input(size=(10), expand_x=True, key='-TIME-')]
+    ]
     layout_cadastrar = [
-        [sg.Text('Matrícula'), sg.Input(key='-MATRICULA-')],
-        [sg.Text('Nome'), sg.Input(key='-NOME-')],
-        [sg.Text('Senha'), sg.Input(key='-SENHA-')],
-        [sg.Text('Time', size=(10)), sg.Input(size=(10), key='-TIME-'),
-        sg.Text('Cargo', size=(10)), sg.Combo(['Aluno', 'PO', 'SM', 'Professor', 'Admin'], readonly=True, size=(10), key='-CARGO-')],
-        [sg.Button('Cadastrar', expand_x=True, key='-CADASTRAR-'),
-        sg.Button('Retornar', expand_x=True, key='-BACK-')],
+        [sg.Text('Matrícula'), sg.Input(expand_x=True, key='-MATRICULA-')],
+        [sg.Text('Nome'), sg.Input(expand_x=True, key='-NOME-')],
+        [sg.Text('Senha'), sg.Input(expand_x=True, key='-SENHA-')],
+        [sg.Column(Cargo),sg.Column(Time)],
+        [sg.Button('Cadastrar', expand_x=True, key='-CADASTRAR-')],
+        [sg.Button('Retornar', expand_x=True, key='-BACK-')]
     ]
     return sg.Window('Cadastrar', layout=layout_cadastrar, margins=(10, 10), finalize=True)
 
-def fun_notas():
+def fun_see_notas():
+    global nivel
     nome = []
     nome_df = pd.DataFrame(data = pd.read_excel('Avaliador 360º - PBLTeX/arquivo.xlsx', engine='openpyxl'))
 
@@ -144,14 +156,24 @@ def fun_notas():
         [sg.Text('')],
         [sg.ProgressBar(50, orientation='h', size=(30, 30), border_width=1, key='-BARM5-')],   
     ]
-    teste = [
-        [sg.Text('Alunos', expand_x=True, justification='center')],
-        [sg.Combo(nome, expand_x=True, readonly=True, enable_events=True, key='-SELECT_N-')],
-        [sg.Text('Matrícula'), sg.Input(key='-MATRICULA-', size=(7, 1), readonly=True)],
-        [sg.Column(sklls),sg.Column(notas)],
-        [sg.Button('Retornar', expand_x=True, key='-BACK-')]
-    ]
-    return sg.Window('Consultar', layout=teste, margins=(10, 10), finalize=True)
+    if nivel == 2: # acessso nivel professor
+        layout_ver_notas = [
+            [sg.Text('Alunos', expand_x=True, justification='center')],
+            [sg.Combo(nome, expand_x=True, readonly=True, enable_events=True, key='-SELECT_N-')],
+            [sg.Text('Matrícula'), sg.Input(key='-MATRICULA-', size=(7, 1), readonly=True)],
+            [sg.Column(sklls),sg.Column(notas)],
+            [sg.Button('Modificar', expand_x=True, key='MODIFICAR')], 
+            [sg.Button('Retornar', expand_x=True, key='-BACK-')]
+        ]
+    else: # acessos de nivel adm e aluno
+        layout_ver_notas = [
+            [sg.Text('Alunos', expand_x=True, justification='center')],
+            [sg.Combo(nome, expand_x=True, readonly=True, enable_events=True, key='-SELECT_N-')],
+            [sg.Text('Matrícula'), sg.Input(key='-MATRICULA-', size=(7, 1), readonly=True)],
+            [sg.Column(sklls),sg.Column(notas)],
+            [sg.Button('Retornar', expand_x=True, key='-BACK-')]
+        ]
+    return sg.Window('Consultar', layout=layout_ver_notas, margins=(10, 10), finalize=True)
 
 tela, login = fun_login(), None
 
@@ -286,14 +308,13 @@ while True:
                 x += 1
         else:
             sg.popup_ok('Preencha todos os campos')
-
     if eventos in ['-TIMES-']:
         login.hide()
         tela = fun_times()
 
     if eventos in ['-NOTAS-']:
         login.hide()
-        tela = fun_notas()
+        tela = fun_see_notas()
 
     if eventos in ['-SELECT_N-']:
         x = 0
