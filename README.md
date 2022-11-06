@@ -1,94 +1,35 @@
-# 🎓 Aprendizado por Projeto Integrador
-* FATEC São José dos Campos - Prof. Jessen Vidal
+# 📦 Entrega: __Sprint 3__
 
-* 1º Período - Banco De Dados
+Abaixo encontram-se todos os itens produzidos durante a __SPRINT 3__: 
 
------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-## Fatec São José dos Campos, SP - PBLTeX  
-Aprendizagem por Projetos Integrados de 2022-2, Avaliação Democratizada baseada na técnica de Avaliação 360º, trabalho realizado pelo 1º Semestre 
-do curso de Banco De Dados na FATEC de São José dos Campos, para a empresa PBLTeX. 
-
-## 👨‍💻 👩‍💻 Equipe First: Integrantes
-
-| Aluno            | Função           | GitHub                                                         | LinkedIn                                              |
-| ---------------- | ---------------- | -------------------------------------------------------------- | ----------------------------------------------------- |
-|__Brendel Marques__  | *Developer Team*  | [![](https://bit.ly/3f9Xo0P)](https://github.com/BrendelMarques)| [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/brendel-marques-4bb1b3148/) |
-|__Caio Costa Santos__  |  *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/Caio-eng-gif)| [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/caio-costa-santos-7a7277195) |
-|__Cristine Gomes__  | *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/CristineGomes)  | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/cristine-cordeiro-467a9620b) |
-|__Gustavo Henrique Silva__| *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/Gustavo394)      | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/gustavo-h8-silva) |
-|__Laroy Bersot Ribeiro do Prado__ | *Scrum Master* | [![](https://bit.ly/3f9Xo0P)](https://github.com/laroyprado)   | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/laroyprado/) |
-|__Pablo Cunha__| *Product Owner* | [![](https://bit.ly/3f9Xo0P)](https://github.com/pabloo-cunha) | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/pabloo-cunha/) |
-|__Roberto Tsushima__| *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/Roberto-tsushima)      | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/roberto-shoiti-tsushima-junior-71318a240/) |
-|__Willian Danko Leite Caboski__| *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/DankoCaboski)      | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/mwlite/in/willian-danko-leite-caboski-5410741b4) |
+## 1 - 📅 Planejamento da Sprint:
 
 
 
+### 📋 Sprint Backlog
 
-## 👨‍🏫 Disciplinas Integradas:
+*A imagem abaixo mostra como os itens do [__Product Backlog__](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/main/Documentacao/Backlog_(API_1_Semestre_Banco_De_Dados).pdf) que foram desenvolvidos durante a __Sprint 3__:*
 
-- Arquitetura e Organização De Computadores - Professor Fabiano Sabha
-- Algoritmos - Professor Lucas Nadalete
-- Laboratório De Desenvolvimento Em Banco De Dados - Professor Lucas Nadalete
-
-## 🎯 Objetivo
-Desenvolver uma aplicação para Avaliação Democratizada, porém incluindo uma avaliação técnica adicional feita pelo Líder do Grupo e uma avaliação de produto/negócio realizada pelo Fake Client.
- - Deve possuir um controle de usuários mínimo;
- - Deve possuir um controle de perfis (instrutores e integrantes do time);
- - Deve possuir um controle de Times;
- - Deve possuir um controle de Sprints, representando os ciclos de desenvolvimento a
-partir do qual cada integrante será avaliado;
- - Deve possibilitar a realização, por um determinado integrante do Time, da avaliação
-dos demais integrantes, incluindo a sí próprio, de forma individualizada.
-- Deve possibilitar a realização das seguintes avaliações adicionais:
-  - Instrutor Líder do Grupo avaliando o aluno Líder Técnico do Time
-  - Instrutor Fake Client avaliando o aluno PO do Time
-- Deve prover um ou mais Dashboards de acompanhamento
-
-## 💬 Descritivo do Projeto
-
-Para a empresa PBLTeX , que deseja realizar suas avaliações democraticas, recebendo os dados  
-em um dashboard, de forma ágil e simples. 
-
-## 🛠️ Ferramentas/Tecnologias
-
-* ### __Front-End__
-
-![](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=darkgreen)
-
-* ### __Back-End__
-
-![](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=darkgreen)
-
-* ### __Gerenciador De Projeto__
-
-![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white)
-![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+![](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/Sprint-3/Documentac%CC%A7a%CC%83o/Backlog%20-%20Sprint%20-%203%20.png)
 
 
-* ### __Armazenamento De Dados__
+## 2 - 🖥️ Wireframe Desktop
 
-![Microsoft Excel](https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
-
-* ### __Wireframe__
-
-![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
+Acesse os links para visualizar:
 
 
-## ⏳ Entregas
-- [X] [**Kick-Off**] - 15/08/2022 a 19/08/2022 ✅
-- [X] [**Sprint 1**](https://github.com/laroyprado/Projeto-API-Equipe-First/tree/Sprint-1) - 29/08/2022 a 18/09/2022 ✅
-- [X] [**Sprint 2**](https://github.com/laroyprado/Projeto-API-Equipe-First/tree/Sprint-2) - 19/09/2022 a 09/10/2022 ✅
-- [X] [**Sprint 3**](https://github.com/laroyprado/Projeto-API-Equipe-First/tree/Sprint-3) - 17/10/2022 a 06/11/2022 ✅
-- [ ] [**Sprint 4**] - 07/11/2022 a 27/11/2022
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+> * [Telas De Avaliação E Consulta](https://github.com/laroyprado/Projeto-API-Equipe-First/tree/Sprint-3/Wireframe)
 
 
 
-# 📝 Product Backlog
+> * [Protótipo interativo no Figma](https://www.figma.com/file/2JpDTLguDtheecLGFKWxwX/Projeto-First---Telas?node-id=0%3A1)
 
-Todo o Backlog priorizado por valor, se encontra em:
-[__Product Backlog__](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/main/Documentacao/Backlog.pdf)
+ 
+## 3 - 🚲 Mínimo Produto Viável (MVP)
 
+*Abaixo temos o endereço dos MVPs entregues nessa Sprint, bem como um Gif demonstrando o comportamento da tela de login quando: são inseridas credenciais corretas; quando alguma informação não é preenchida; e quando a senha informada é incorreta.*
+
+* [Código](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/Sprint-3/Minimum%20Viable%20Product/Avaliador%20360%C2%BA%20-%20PBLTeX/main.py)
+
+
+![](https://github.com/laroyprado/Projeto-API-Equipe-First/blob/Sprint-3/Minimum%20Viable%20Product/gif_produto.gif.gif)
