@@ -50,24 +50,46 @@ def fun_adm():
     ]
     return sg.Window('Administrador', layout=layout_adm, margins=(10, 10), finalize=True)
 
-def fun_consultar():
+times =[]
+nome =[]
+select = []
 
-    nome = []
+def fun_consultar():
+    global times, nome, select, teste
+
     nome_df = pd.DataFrame(data = pd.read_excel('Avaliador 360º - PBLTeX/arquivo.xlsx', engine='openpyxl'))
 
-    for linha in nome_df['Nome']:
-        nome.append(linha)
-    
+    l=0
+    for i in nome_df.itertuples():
+        time = nome_df.iat[l,4]
+        if time != 'Admin' and time != 'Professor' and time not in times:
+            times.append(time)
+        l+=1
+
+    esquerda = [
+        [sg.Text('Time:')],
+        [sg.Text('Aluno:')],
+        [sg.Text('Matrícula:')],
+        [sg.Text('Senha:')],
+        [sg.Text('Time:', size=(10))],
+        [sg.Text('Cargo:', size=(10))],
+    ]
+
+    direita = [
+        [sg.Combo(times, expand_x=True, size=(20, 5), readonly=True, enable_events=True, key='-SELECT_T-')],
+        [sg.Combo(nome, expand_x=True, size=(20, 5), readonly=True, enable_events=True, key='-SELECT_C1-')],
+        [sg.Input(key='-MATRICULA-', readonly=True)],
+        [sg.Input(password_char='*', key='-SENHA-')],
+        [sg.Input(size=(10), key='-TIME-')],
+        [sg.Input(readonly=True, size=(10), key='-CARGO-')],
+    ]
+
     layout_consultar = [
         [sg.Text('Alunos', expand_x=True, justification='center')],
-        [sg.Combo(nome, expand_x=True, size=(20, 5), readonly=True, enable_events=True, key='-SELECT_C-')],
-        [sg.Text('Matrícula'), sg.Input(key='-MATRICULA-', readonly=True)],
-        [sg.Text('Nome'), sg.Input(key='-NOME-')],
-        [sg.Text('Senha'), sg.Input(password_char='*', key='-SENHA-')],
-        [sg.Text('Time', size=(10)), sg.Input(size=(10), key='-TIME-'),
-        sg.Text('Cargo', size=(10)), sg.Combo(['Aluno', 'PO', 'SM', 'Professor', 'Admin'], readonly=True, size=(10), key='-CARGO-')],
-        [sg.Button('Alterar', expand_x=True, key='-ALTERAR-'),
-        sg.Button('Retornar', expand_x=True, key='-BACK-')],
+        [sg.Column(esquerda),sg.Column(direita)],
+        [sg.Button('Alterar', expand_x=True, key='-ALTERAR-')],
+        [sg.Button('Retornar', expand_x=True, key='-BACK-')],
+
     ]
     return sg.Window('Consultar', layout=layout_consultar, margins=(10, 10), finalize=True)
 
@@ -182,6 +204,8 @@ def fun_see_notas():
 
 tela, login = fun_login(), None
 
+val1 = 0
+
 while True:
     janela, eventos, valores = sg.read_all_windows()
 
@@ -290,7 +314,41 @@ while True:
                 janela['-TIME-'].update(value=df.loc[x].at['Time'])
                 janela['-CARGO-'].update(value=df.loc[x].at['Cargo'])
             x += 1
-    
+
+    if eventos in ['-SELECT_T-']:       # filtro por times
+        if val1 != 0:
+            select.clear()
+            val1+=1
+        select.clear()
+        times.clear()
+        nome.clear()
+        select.append(valores['-SELECT_T-'])
+        x = 0
+        for i in df.itertuples():
+            if df.iat[x,3] in select:       # validacao dos nomes
+                nome.append(df.at[x,'Nome'])   
+            x+=1
+            tela.close()
+        tela = fun_consultar()
+        tela['-SELECT_T-'].update('')
+        val = select[0]
+        tela['-SELECT_T-'].update(val)
+        print(select)
+        print(nome)
+
+    if eventos in ['-SELECT_C1-']:
+        print(valores['-SELECT_C1-'])
+        x=0
+        for i in df.itertuples():
+            if df.iat[x,1] == valores['-SELECT_C1-']:
+                tela['-MATRICULA-'].update(df.iat[x,0])
+                tela['-SENHA-'].update(df.iat[x,2])
+                tela['-TIME-'].update(df.iat[x,3])
+                tela['-CARGO-'].update(df.iat[x,4])
+                break
+            x+=1
+
+
     if eventos in ['-ALTERAR-']:
         if valores['-SELECT_C-'] == '':
             sg.popup_ok('Selecione o usuário para ser alterado')
