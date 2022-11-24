@@ -31,7 +31,7 @@ def fun_professor():
     layout_professor = [
         [sg.Text('Logado como professor', expand_x=True, justification='center', key='-NOME_USUARIO-')],
         [sg.pin(sg.Button('Consultar alunos', size=(13, 1), key='-ALUNOS-')),
-        sg.pin(sg.Button('Consultar times', size=(13, 1), key='-TIMES-')),
+        sg.pin(sg.Button('Avaliar Alunos', size=(13, 1), key='-AVALIAR-')),
         sg.pin(sg.Button('Consultar notas', size=(13, 1), key='-NOTAS-')),],
         [sg.pin(sg.Button('Deslogar', size=(41, 1), key='-DESLOGAR-'))],
     ]
@@ -282,6 +282,7 @@ while True:
                         janela['-M3-'].update('   ')
                         janela['-M4-'].update('   ')
                         janela['-M5-'].update('   ')
+                        sg.popup_ok("Aluno Avaliado Com Sucesso!")
                     else:
                         df.at[x, 'm1'] = int(valores['-M1-'])
                         df.at[x, 'm2'] = int(valores['-M2-'])
@@ -313,6 +314,7 @@ while True:
                 janela['-SENHA-'].update(value=df.loc[x].at['Senha'])
                 janela['-TIME-'].update(value=df.loc[x].at['Time'])
                 janela['-CARGO-'].update(value=df.loc[x].at['Cargo'])
+                sg.popup_ok("Aluno Avaliado Com Sucesso!")
             x += 1
 
     if eventos in ['-SELECT_T-']:       # filtro por times
