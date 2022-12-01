@@ -50,6 +50,10 @@ def fun_adm():
     ]
     return sg.Window('Administrador', layout=layout_adm, margins=(10, 10), finalize=True)
 
+times =[]
+nome =[]
+select = []
+
 def fun_consultar():
     global times, nome, select, teste
 
@@ -61,7 +65,6 @@ def fun_consultar():
         if time != 'Admin' and time != 'Professor' and time not in times:
             times.append(time)
         l+=1
-    times.sort()
 
     esquerda = [
         [sg.Text('Time:')],
@@ -73,8 +76,8 @@ def fun_consultar():
     ]
 
     direita = [
-        [sg.Combo(times, expand_x=True, size=(20, 5), readonly=True, enable_events=True, key='-SELECT_T-')], # caixa seleção do filtro de times 
-        [sg.Combo(nome, expand_x=True, size=(20, 5), readonly=True, enable_events=True, key='-SELECT_C1-')], # caixa de seleção do aluno me função do time
+        [sg.Combo(times, expand_x=True, size=(20, 5), readonly=True, enable_events=True, key='-SELECT_T-')],
+        [sg.Combo(nome, expand_x=True, size=(20, 5), readonly=True, enable_events=True, key='-SELECT_C1-')],
         [sg.Input(key='-MATRICULA-', readonly=True)],
         [sg.Input(password_char='*', key='-SENHA-')],
         [sg.Input(size=(10), key='-TIME-')],
@@ -170,15 +173,15 @@ def fun_see_notas():
     ]
 
     notas = [
-        [sg.ProgressBar(50, orientation='h', size=(30, 30), border_width=1, key='-BARM1-')],
+        [sg.ProgressBar(5, orientation='h', size=(30, 30), border_width=1, key='-BARM1-')],
         [sg.Text('')],
-        [sg.ProgressBar(50, orientation='h', size=(30, 30),  border_width=1, key='-BARM2-')],
+        [sg.ProgressBar(5, orientation='h', size=(30, 30),  border_width=1, key='-BARM2-')],
         [sg.Text('')],
-        [sg.ProgressBar(50, orientation='h', size=(30, 30), border_width=1, key='-BARM3-')],
+        [sg.ProgressBar(5, orientation='h', size=(30, 30), border_width=1, key='-BARM3-')],
         [sg.Text('')],
-        [sg.ProgressBar(50, orientation='h', size=(30, 30), border_width=1, key='-BARM4-')],
+        [sg.ProgressBar(5, orientation='h', size=(30, 30), border_width=1, key='-BARM4-')],
         [sg.Text('')],
-        [sg.ProgressBar(50, orientation='h', size=(30, 30), border_width=1, key='-BARM5-')],   
+        [sg.ProgressBar(5, orientation='h', size=(30, 30), border_width=1, key='-BARM5-')],   
     ]
     if nivel == 2: # acessso nivel professor
         layout_ver_notas = [
@@ -200,6 +203,8 @@ def fun_see_notas():
     return sg.Window('Consultar', layout=layout_ver_notas, margins=(10, 10), finalize=True)
 
 tela, login = fun_login(), None
+
+val1 = 0
 
 while True:
     janela, eventos, valores = sg.read_all_windows()
@@ -312,26 +317,26 @@ while True:
                 sg.popup_ok("Aluno Avaliado Com Sucesso!")
             x += 1
 
-    times =[] # variavel que armazena os times, starta vazia, e é preenchida quando a tela é aberta,. suporta infinitos times 
-    nome =[] # variavel que armazena os nomes presentes no time escolhido
-    select = [] # variavel que armazena o time escolhido em 'SELECT_T'
-
-    if eventos in ['-SELECT_T-']:# filtro por times
+    if eventos in ['-SELECT_T-']:       # filtro por times
+        if val1 != 0:
+            select.clear()
+            val1+=1
         select.clear()
         times.clear()
         nome.clear()
         select.append(valores['-SELECT_T-'])
         x = 0
-        for i in df.itertuples():# laço que valida os nomes
-            if df.iat[x,3] in select:       
+        for i in df.itertuples():
+            if df.iat[x,3] in select:       # validacao dos nomes
                 nome.append(df.at[x,'Nome'])   
             x+=1
-        nome.sort()
-        tela.close() #restarta a tela
+            tela.close()
         tela = fun_consultar()
-        tela['-SELECT_T-'].update(select) #atualiza a combobox do time para o time selecionado 
-        #print(select)
-        #print(nome)
+        tela['-SELECT_T-'].update('')
+        val = select[0]
+        tela['-SELECT_T-'].update(val)
+        print(select)
+        print(nome)
 
     if eventos in ['-SELECT_C1-']:
         print(valores['-SELECT_C1-'])
@@ -396,53 +401,53 @@ while True:
                     janela['-INPM5-'].update('')
                     break
                 else:
-                    p_m1 = int(df.loc[x].at['m1'])
-                    p_m2 = int(df.loc[x].at['m2'])
-                    p_m3 = int(df.loc[x].at['m3'])
-                    p_m4 = int(df.loc[x].at['m4'])
-                    p_m5 = int(df.loc[x].at['m5'])
+                    p_m1 = int(df.loc[x].at['m1']/10)
+                    p_m2 = int(df.loc[x].at['m2']/10)
+                    p_m3 = int(df.loc[x].at['m3']/10)
+                    p_m4 = int(df.loc[x].at['m4']/10)
+                    p_m5 = int(df.loc[x].at['m5']/10)
 
                     janela['-MATRICULA-'].update(value=df.loc[x].at['Matricula'])
-                    if p_m1 <= 25:
+                    if p_m1 <= 2:
                         janela['-BARM1-'].update(p_m1, bar_color=('red', 'white'))
-                    if p_m1 > 25 and p_m1 < 40:
+                    if p_m1 > 2 and p_m1 < 4:
                         janela['-BARM1-'].update(p_m1, bar_color=('yellow', 'white'))
-                    if p_m1 >= 40:
+                    if p_m1 >= 4:
                         janela['-BARM1-'].update(p_m1, bar_color=('green', 'white'))
 
-                    if p_m2 <= 25:
+                    if p_m2 <= 5:
                         janela['-BARM2-'].update(p_m2, bar_color=('red', 'white'))
-                    if p_m2 > 25 and p_m2 < 40:
+                    if p_m2 > 2 and p_m2 < 4:
                         janela['-BARM2-'].update(p_m2, bar_color=('yellow', 'white'))
-                    if p_m2 >= 40:
+                    if p_m2 >= 4:
                         janela['-BARM2-'].update(p_m2, bar_color=('green', 'white'))
 
-                    if p_m3 <= 25:
+                    if p_m3 <= 2:
                         janela['-BARM3-'].update(p_m3, bar_color=('red', 'white'))
-                    if p_m3 > 25 and p_m3 < 40:
+                    if p_m3 > 2 and p_m3 < 4:
                         janela['-BARM3-'].update(p_m3, bar_color=('yellow', 'white'))
-                    if p_m3 >= 40:
+                    if p_m3 >= 4:
                         janela['-BARM3-'].update(p_m3, bar_color=('green', 'white'))
 
-                    if p_m4 <= 25:
+                    if p_m4 <= 2:
                         janela['-BARM4-'].update(p_m4, bar_color=('red', 'white'))
-                    if p_m4 > 25 and p_m4 < 40:
+                    if p_m4 > 2 and p_m4 < 4:
                         janela['-BARM4-'].update(p_m4, bar_color=('yellow', 'white'))
-                    if p_m4 >= 40:
+                    if p_m4 >= 4:
                         janela['-BARM4-'].update(p_m4, bar_color=('green', 'white'))
 
-                    if p_m5 <= 25:
+                    if p_m5 <= 2:
                         janela['-BARM5-'].update(p_m5, bar_color=('red', 'white'))
-                    if p_m5 > 25 and p_m5 < 40:
+                    if p_m5 > 2 and p_m5 < 4:
                         janela['-BARM5-'].update(p_m5, bar_color=('yellow', 'white'))
-                    if p_m5 >= 40:
+                    if p_m5 >= 4:
                         janela['-BARM5-'].update(p_m5, bar_color=('green', 'white'))
 
-                    janela['-INPM1-'].update(int(df.loc[x].at['m1']))
-                    janela['-INPM2-'].update(int(df.loc[x].at['m2']))
-                    janela['-INPM3-'].update(int(df.loc[x].at['m3']))
-                    janela['-INPM4-'].update(int(df.loc[x].at['m4']))
-                    janela['-INPM5-'].update(int(df.loc[x].at['m5']))
+                    janela['-INPM1-'].update(int(df.loc[x].at['m1']/10))
+                    janela['-INPM2-'].update(int(df.loc[x].at['m2']/10))
+                    janela['-INPM3-'].update(int(df.loc[x].at['m3']/10))
+                    janela['-INPM4-'].update(int(df.loc[x].at['m4']/10))
+                    janela['-INPM5-'].update(int(df.loc[x].at['m5']/10))
             x += 1
 
     if eventos in ['-CADASTRO-']:
