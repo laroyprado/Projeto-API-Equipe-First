@@ -385,6 +385,14 @@ while True:
         x = 0
         for linha in df['Nome']:
             if linha == valores['-SELECT_N-']:
+
+                nome_time = (df.at[x, 'Time'])
+                ##time_todos = df['Time']
+                time_integrantes_quantidade = 0
+                for time_verificador in df['Time']:
+                    if time_verificador == nome_time:
+                        time_integrantes_quantidade += 1
+                print(nome_time, time_integrantes_quantidade)
                 if str(df.loc[x].at['m1']) and str(df.loc[x].at['m2']) and str(df.loc[x].at['m3']) and str(df.loc[x].at['m4']) and str(df.loc[x].at['m5']) == 'nan':
                     sg.popup_ok('Usuário sem notas para consultar')
                     janela['-MATRICULA-'].update(value=df.loc[x].at['Matricula'])
@@ -401,11 +409,11 @@ while True:
                     janela['-INPM5-'].update('')
                     break
                 else:
-                    p_m1 = int(df.loc[x].at['m1']/10)
-                    p_m2 = int(df.loc[x].at['m2']/10)
-                    p_m3 = int(df.loc[x].at['m3']/10)
-                    p_m4 = int(df.loc[x].at['m4']/10)
-                    p_m5 = int(df.loc[x].at['m5']/10)
+                    p_m1 = float(df.loc[x].at['m1']/time_integrantes_quantidade)
+                    p_m2 = float(df.loc[x].at['m2']/time_integrantes_quantidade)
+                    p_m3 = float(df.loc[x].at['m3']/time_integrantes_quantidade)
+                    p_m4 = float(df.loc[x].at['m4']/time_integrantes_quantidade)
+                    p_m5 = float(df.loc[x].at['m5']/time_integrantes_quantidade)
 
                     janela['-MATRICULA-'].update(value=df.loc[x].at['Matricula'])
                     if p_m1 <= 2:
@@ -443,11 +451,11 @@ while True:
                     if p_m5 >= 4:
                         janela['-BARM5-'].update(p_m5, bar_color=('green', 'white'))
 
-                    janela['-INPM1-'].update(int(df.loc[x].at['m1']/10))
-                    janela['-INPM2-'].update(int(df.loc[x].at['m2']/10))
-                    janela['-INPM3-'].update(int(df.loc[x].at['m3']/10))
-                    janela['-INPM4-'].update(int(df.loc[x].at['m4']/10))
-                    janela['-INPM5-'].update(int(df.loc[x].at['m5']/10))
+                    janela['-INPM1-'].update(float(df.loc[x].at['m1']/time_integrantes_quantidade))
+                    janela['-INPM2-'].update(float(df.loc[x].at['m2']/time_integrantes_quantidade))
+                    janela['-INPM3-'].update(float(df.loc[x].at['m3']/time_integrantes_quantidade))
+                    janela['-INPM4-'].update(float(df.loc[x].at['m4']/time_integrantes_quantidade))
+                    janela['-INPM5-'].update(float(df.loc[x].at['m5']/time_integrantes_quantidade))
             x += 1
 
     if eventos in ['-CADASTRO-']:
