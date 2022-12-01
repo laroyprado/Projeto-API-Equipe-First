@@ -350,7 +350,7 @@ while True:
 
 
     if eventos in ['-ALTERAR-']:
-        if valores['-SELECT_C-'] == '':
+        if valores['-SELECT_C1-'] == '':
             sg.popup_ok('Selecione o usuário para ser alterado')
         elif valores['-NOME-'] and valores['-SENHA-'] and valores['-TIME-'] and valores['-CARGO-'] != '':
             x = 0
