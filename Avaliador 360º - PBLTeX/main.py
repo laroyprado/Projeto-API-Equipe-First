@@ -50,10 +50,6 @@ def fun_adm():
     ]
     return sg.Window('Administrador', layout=layout_adm, margins=(10, 10), finalize=True)
 
-times =[]
-nome =[]
-select = []
-
 def fun_consultar():
     global times, nome, select, teste
 
@@ -65,6 +61,7 @@ def fun_consultar():
         if time != 'Admin' and time != 'Professor' and time not in times:
             times.append(time)
         l+=1
+    times.sort()
 
     esquerda = [
         [sg.Text('Time:')],
@@ -76,8 +73,8 @@ def fun_consultar():
     ]
 
     direita = [
-        [sg.Combo(times, expand_x=True, size=(20, 5), readonly=True, enable_events=True, key='-SELECT_T-')],
-        [sg.Combo(nome, expand_x=True, size=(20, 5), readonly=True, enable_events=True, key='-SELECT_C1-')],
+        [sg.Combo(times, expand_x=True, size=(20, 5), readonly=True, enable_events=True, key='-SELECT_T-')], # caixa seleção do filtro de times 
+        [sg.Combo(nome, expand_x=True, size=(20, 5), readonly=True, enable_events=True, key='-SELECT_C1-')], # caixa de seleção do aluno me função do time
         [sg.Input(key='-MATRICULA-', readonly=True)],
         [sg.Input(password_char='*', key='-SENHA-')],
         [sg.Input(size=(10), key='-TIME-')],
@@ -204,8 +201,6 @@ def fun_see_notas():
 
 tela, login = fun_login(), None
 
-val1 = 0
-
 while True:
     janela, eventos, valores = sg.read_all_windows()
 
@@ -317,26 +312,26 @@ while True:
                 sg.popup_ok("Aluno Avaliado Com Sucesso!")
             x += 1
 
-    if eventos in ['-SELECT_T-']:       # filtro por times
-        if val1 != 0:
-            select.clear()
-            val1+=1
+    times =[] # variavel que armazena os times, starta vazia, e é preenchida quando a tela é aberta,. suporta infinitos times 
+    nome =[] # variavel que armazena os nomes presentes no time escolhido
+    select = [] # variavel que armazena o time escolhido em 'SELECT_T'
+
+    if eventos in ['-SELECT_T-']:# filtro por times
         select.clear()
         times.clear()
         nome.clear()
         select.append(valores['-SELECT_T-'])
         x = 0
-        for i in df.itertuples():
-            if df.iat[x,3] in select:       # validacao dos nomes
+        for i in df.itertuples():# laço que valida os nomes
+            if df.iat[x,3] in select:       
                 nome.append(df.at[x,'Nome'])   
             x+=1
-            tela.close()
+        nome.sort()
+        tela.close() #restarta a tela
         tela = fun_consultar()
-        tela['-SELECT_T-'].update('')
-        val = select[0]
-        tela['-SELECT_T-'].update(val)
-        print(select)
-        print(nome)
+        tela['-SELECT_T-'].update(select) #atualiza a combobox do time para o time selecionado 
+        #print(select)
+        #print(nome)
 
     if eventos in ['-SELECT_C1-']:
         print(valores['-SELECT_C1-'])
