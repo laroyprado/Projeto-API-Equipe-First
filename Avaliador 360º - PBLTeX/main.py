@@ -55,7 +55,7 @@ nome =[]
 select = []
 
 def fun_consultar():
-    global times, nome, select, teste
+    global times, nome, select
 
     nome_df = pd.DataFrame(data = pd.read_excel('Avaliador 360º - PBLTeX/arquivo.xlsx', engine='openpyxl'))
 
@@ -65,6 +65,9 @@ def fun_consultar():
         if time != 'Admin' and time != 'Professor' and time not in times:
             times.append(time)
         l+=1
+
+    times.sort()
+    nome.sort()
 
     esquerda = [
         [sg.Text('Time:')],
@@ -119,15 +122,15 @@ def fun_avaliar():
         [sg.Text('Alunos', expand_x=True, justification='center')],
         [sg.Combo(nome, expand_x=True, readonly=True, enable_events=True, key='-SELECT_A-')],
         [sg.Text('Matrícula'), sg.Input(key='-MATRICULA-', size=(7, 1), readonly=True)],
-        [sg.Text('1. Trabalho Em Equipe, Cooperação E Descentralização De Conhecimento')],
+        [sg.Text('1. Trabalho em equipe, cooperação e descentralização de conhecimento')],
         [sg.Combo(notas, size=(3, 1), readonly=True, key='-M1-',)],
         [sg.Text('2. Iniciativa e proatividade')],
         [sg.Combo(notas, size=(3, 1), readonly=True, key='-M2-')],
-        [sg.Text('3. Autodidaxia E Agregação De Conhecimento Ao Grupo')],
+        [sg.Text('3. Autodidaxia e agregação de conhecimento ao grupo')],
         [sg.Combo(notas, size=(3, 1), readonly=True, key='-M3-')],
-        [sg.Text('4. Entrega de Resultados E Participação Efetiva No Projeto')],
+        [sg.Text('4. Entrega de resultados e participação efetiva no projeto')],
         [sg.Combo(notas, size=(3, 1), readonly=True, key='-M4-')],
-        [sg.Text('5. Competência Técnica')],
+        [sg.Text('5. Competência técnica')],
         [sg.Combo(notas, size=(3, 1), readonly=True, key='-M5-')],
         [sg.Button('Salvar', expand_x=True, key='-ENVIAR-'),
         sg.Button('Retornar', expand_x=True, key='-BACK-')],
@@ -152,23 +155,43 @@ def fun_cadastrar():
     return sg.Window('Cadastrar', layout=layout_cadastrar, margins=(10, 10), finalize=True)
 
 def fun_see_notas():
-    global nivel
-    nome = []
+    global nivel, times, nome, select
+    nome_cons = []
     nome_df = pd.DataFrame(data = pd.read_excel('Avaliador 360º - PBLTeX/arquivo.xlsx', engine='openpyxl'))
 
+    l=0
+    for i in nome_df.itertuples():
+        time = nome_df.iat[l,4]
+        if time != 'Admin' and time != 'Professor' and time not in times:
+            times.append(time)
+        l+=1
+
+    times.sort()
+    nome.sort()
+
     for linha in nome_df['Nome']:
-        nome.append(linha)
+        nome_cons.append(linha)
+
+    label=[
+        [sg.Text('Time:')],
+        [sg.Text('Aluno:')]
+        ]
+
+    vallabel=[
+        [sg.Combo(times, expand_x=True, size=(20, 5), readonly=True, enable_events=True, key='-SELECT_T1-')],
+        [sg.Combo(nome, expand_x=True, size=(20, 5), readonly=True, enable_events=True, key='-SELECT_C2-')]
+        ]
 
     sklls = [
-        [sg.Text('1. Trabalho Em Equipe, Cooperação E Descentralização De Conhecimento')],
+        [sg.Text('1. Trabalho em equipe, cooperação e descentralização de conhecimento')],
         [sg.Input(size=(5, 1), readonly=True, key='-INPM1-')],
         [sg.Text('2. Iniciativa e proatividade')],
         [sg.Input(size=(5, 1), readonly=True, key='-INPM2-')],
-        [sg.Text('3. Autodidaxia E Agregação De Conhecimento Ao Grupo')],
+        [sg.Text('3. Autodidaxia e agregação de conhecimento ao grupo')],
         [sg.Input(size=(5, 1), readonly=True, key='-INPM3-')],
-        [sg.Text('4. Entrega de Resultados E Participação Efetiva No Projeto')],
+        [sg.Text('4. Entrega de resultados e participação efetiva no projeto')],
         [sg.Input(size=(5, 1), readonly=True, key='-INPM4-')],
-        [sg.Text('5. Competência Técnica')],
+        [sg.Text('5. Competência técnica')],
         [sg.Input(size=(5, 1), readonly=True, key='-INPM5-')]
     ]
 
@@ -186,7 +209,7 @@ def fun_see_notas():
     if nivel == 2: # acessso nivel professor
         layout_ver_notas = [
             [sg.Text('Alunos', expand_x=True, justification='center')],
-            [sg.Combo(nome, expand_x=True, readonly=True, enable_events=True, key='-SELECT_N-')],
+            [sg.Combo(nome_cons, expand_x=True, readonly=True, enable_events=True, key='-SELECT_N-')],
             [sg.Text('Matrícula'), sg.Input(key='-MATRICULA-', size=(7, 1), readonly=True)],
             [sg.Column(sklls),sg.Column(notas)],
             [sg.Button('Modificar', expand_x=True, key='MODIFICAR')], 
@@ -195,9 +218,9 @@ def fun_see_notas():
     else: # acessos de nivel adm e aluno
         layout_ver_notas = [
             [sg.Text('Alunos', expand_x=True, justification='center')],
-            [sg.Combo(nome, expand_x=True, readonly=True, enable_events=True, key='-SELECT_N-')],
+            [sg.Column(label),sg.Column(vallabel, expand_x=True)],
             [sg.Text('Matrícula'), sg.Input(key='-MATRICULA-', size=(7, 1), readonly=True)],
-            [sg.Column(sklls),sg.Column(notas)],
+            [sg.Column(sklls),sg.Column(notas)],    
             [sg.Button('Retornar', expand_x=True, key='-BACK-')]
         ]
     return sg.Window('Consultar', layout=layout_ver_notas, margins=(10, 10), finalize=True)
@@ -330,11 +353,32 @@ while True:
             if df.iat[x,3] in select:       # validacao dos nomes
                 nome.append(df.at[x,'Nome'])   
             x+=1
-            tela.close()
+        tela.close()
         tela = fun_consultar()
         tela['-SELECT_T-'].update('')
         val = select[0]
         tela['-SELECT_T-'].update(val)
+        print(select)
+        print(nome)
+        
+    if eventos in ['-SELECT_T1-']:       # filtro por times
+        if val1 != 0:
+            select.clear()
+            val1+=1
+        select.clear()
+        times.clear()
+        nome.clear()
+        select.append(valores['-SELECT_T1-'])
+        x = 0
+        for i in df.itertuples():
+            if df.iat[x,3] in select:       # validacao dos nomes
+                nome.append(df.at[x,'Nome'])   
+            x+=1
+        tela.close()
+        tela = fun_see_notas()
+        tela['-SELECT_T1-'].update('')
+        val = select[0]
+        tela['-SELECT_T1-'].update(val)
         print(select)
         print(nome)
 
@@ -350,6 +394,41 @@ while True:
                 break
             x+=1
 
+    if eventos in ['-SELECT_C2-']:
+
+        linha = 0
+        for i in df.itertuples():
+            if df.iat[linha,1] == valores['-SELECT_C2-']:
+                break
+            linha += 1
+
+        pessoas =[]
+        for i in df.itertuples():
+            i=list(i)
+            if i[4] == df.iat[linha,3]:
+                pessoas.append(i[4])
+
+        n1 = float(df.at[linha,'m1']/len(pessoas))
+        n2 = float(df.at[linha,'m2']/len(pessoas))
+        n3 = float(df.at[linha,'m3']/len(pessoas))
+        n4 = float(df.at[linha,'m4']/len(pessoas))
+        n5 = float(df.at[linha,'m5']/len(pessoas))
+
+        janela['-MATRICULA-'].update(df.iat[linha,0])        
+
+        janela['-BARM1-'].update(n1)
+        janela['-BARM2-'].update(n2)
+        janela['-BARM3-'].update(n3)
+        janela['-BARM4-'].update(n4)
+        janela['-BARM5-'].update(n5)
+
+        janela['-INPM1-'].update(n1)
+        janela['-INPM2-'].update(n2)
+        janela['-INPM3-'].update(n3)
+        janela['-INPM4-'].update(n4)
+        janela['-INPM5-'].update(n5)
+
+                
 
     if eventos in ['-ALTERAR-']:
         if valores['-SELECT_C1-'] == '':
@@ -393,8 +472,8 @@ while True:
                     if time_verificador == nome_time:
                         time_integrantes_quantidade += 1
                 print(nome_time, time_integrantes_quantidade)
-                if str(df.loc[x].at['m1']) and str(df.loc[x].at['m2']) and str(df.loc[x].at['m3']) and str(df.loc[x].at['m4']) and str(df.loc[x].at['m5']) == 'nan':
-                    sg.popup_ok('Usuário sem notas para consultar')
+                if str(df.loc[x].at['m1']) and str(df.loc[x].at['m2']) and str(df.loc[x].at['m3']) \
+                     and str(df.loc[x].at['m4']) and str(df.loc[x].at['m5']) == 'nan':
                     janela['-MATRICULA-'].update(value=df.loc[x].at['Matricula'])
                     janela['-BARM1-'].update(0)
                     janela['-BARM2-'].update(0)
@@ -407,6 +486,7 @@ while True:
                     janela['-INPM3-'].update('')
                     janela['-INPM4-'].update('')
                     janela['-INPM5-'].update('')
+                    sg.popup_ok('Usuário sem notas para consultar')
                     break
                 else:
                     p_m1 = float(df.loc[x].at['m1']/time_integrantes_quantidade)
