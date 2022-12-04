@@ -6,6 +6,10 @@ sg.set_options(font=('Arial', 20))
 
 nivel = 0 # 1 = adm, 2 = professor, 3 = aluno
 
+times =[]
+nome =[]
+select = []
+
 def fun_login():
     layout_login = [
         [sg.Text('Usuário')], [sg.Input(key='usuário', size=(30,30))],
@@ -49,10 +53,6 @@ def fun_adm():
         sg.pin(sg.Button('Deslogar', size=(20, 1), key='-DESLOGAR-'))],
     ]
     return sg.Window('Administrador', layout=layout_adm, margins=(10, 10), finalize=True)
-
-times =[]
-nome =[]
-select = []
 
 def fun_consultar():
     global times, nome, select
@@ -428,8 +428,6 @@ while True:
         janela['-INPM4-'].update(n4)
         janela['-INPM5-'].update(n5)
 
-                
-
     if eventos in ['-ALTERAR-']:
         if valores['-SELECT_C1-'] == '':
             sg.popup_ok('Selecione o usuário para ser alterado')
@@ -452,6 +450,7 @@ while True:
                 x += 1
         else:
             sg.popup_ok('Preencha todos os campos')
+  
     if eventos in ['-TIMES-']:
         login.hide()
         tela = fun_times()
